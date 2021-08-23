@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -type f --sort=time | head -n 11
+ls -1t | head -10
