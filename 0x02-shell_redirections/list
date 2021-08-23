@@ -1,4 +1,3 @@
-
 Javascript
 Perl
 PHP
@@ -22,8 +21,7 @@ Python
 Javascript
 Javascript
 Javascript
-ASP
-julien@ubuntu:/tmp/0x02$ cat list | ./13-unique 
+ASP 
 C
 C++
 Go
