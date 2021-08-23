@@ -1,0 +1,3 @@
+#!/bin/bash
+read -p "Insert sentence: " sentence
+echo $sentence | tr Ac Ze
