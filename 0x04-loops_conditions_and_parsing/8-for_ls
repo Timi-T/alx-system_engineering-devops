@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times and "hi" the 9th time
+
+for files in *; do
+	[[ -e "$files" ]] || break
+	echo "$files" | cut -d "-" -f2
+done
