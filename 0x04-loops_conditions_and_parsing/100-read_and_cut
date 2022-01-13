@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #display file content
 
-cat /etc/passwd | while read LREAD
+
+cat /etc/passwd | while read -r
 do
 	awk -F: '{ print $1":" $3 ":" $6}'
 done
