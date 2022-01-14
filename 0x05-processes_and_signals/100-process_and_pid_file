@@ -2,6 +2,11 @@
 #does a lot really
 
 trap "echo Y U no love me?!" 2
+trap func exit
+function func(){
+	rm /var/run/myscript.pid
+	echo "I hate the kill command"
+}
 touch /var/run/myscript.pid
 chmod +x /var/run/myscript.pid
 echo $$ > /var/run/myscript.pid
