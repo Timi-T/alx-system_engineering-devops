@@ -10,7 +10,7 @@ function func(){
 touch /var/run/myscript.pid
 chmod +x /var/run/myscript.pid
 echo $$ > /var/run/myscript.pid
-while [ 1 ]; do
+while true; do
 	echo To infinity and beyond
 	sleep 5
 done
