@@ -2,7 +2,7 @@
 #to infinity and beyond
 
 trap "echo I am invincible!!!" 15
-while [ 1 ]; do
+while true; do
 	echo "To infinity and beyond"
 	sleep 2
 done
