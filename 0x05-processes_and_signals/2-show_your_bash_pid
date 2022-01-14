@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#script to show all processes
+
+ps -U root -u root u | grep bash

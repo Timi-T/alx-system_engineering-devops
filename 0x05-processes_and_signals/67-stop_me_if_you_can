@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#script to use a kill signal
+
+pkill -f 7-highlander

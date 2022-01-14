@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#does a lot really
+
+trap "echo Y U no love me?!" 2
+touch /var/run/myscript.pid
+chmod +x /var/run/myscript.pid
+echo $$ > /var/run/myscript.pid
+while [ 1 ]; do
+	echo To infinity and beyond
+	sleep 5
+done
