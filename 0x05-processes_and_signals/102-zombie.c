@@ -16,6 +16,8 @@ int main(void)
 	int ret_val;
 
 	ret_val = fork();
+	if (ret_val > 0)
+		printf("parent process: %d\n", getpid());
 	if (ret_val == 0)
 	{
 		printf("Zombie process created, PID: %d\n", getpid());
@@ -32,6 +34,7 @@ int main(void)
 		i++;
 	}
 	infinite_while();
+	return (0);
 }
 
 /**
