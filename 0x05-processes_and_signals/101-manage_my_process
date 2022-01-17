@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 #init file
 
-MY_PID="$$"
-echo $MY_PID
 start () {
 	./manage_my_process&
         echo $! > /var/run/my_process.pid
@@ -10,16 +8,16 @@ start () {
 }
 
 stop () {
+	kill "$(cat /var/run/my_process.pid)"
 	rm /var/run/my_process.pid
 	echo "manage_my_process stopped"
 }
 
 restart () {
+	kill "$(cat /var/run/my_process.pid)"
 	rm /var/run/my_process.pid
+	./manage_my_process&
 	echo $! > /var/run/my_process.pid
-#	cat /var/run/my_process.pid > MY_PID
-	echo $MY_PID
-	kill $MY_PID
         echo "manage_my_process restarted"
 }
 
