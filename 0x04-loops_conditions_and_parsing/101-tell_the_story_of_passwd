@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#display content of etc/passwd
+
+awk -F ":" '{i=0; while(i<=NL) {print "The user " $1" is part of the " $4 " gang, lives in "$6 " and rides " $7 ". " $3 "\47s place is protected by the passcode " $2 ", more info about the user here: " $5; i++}}' /etc/passwd
