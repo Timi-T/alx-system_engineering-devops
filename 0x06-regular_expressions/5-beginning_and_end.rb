@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 #starts and ends with
 
-puts ARGV[0].scan(/\Ah\S+n\z/).join
+puts ARGV[0].scan(/\Ah\Sn\z/).join
