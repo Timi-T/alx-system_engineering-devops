@@ -1,4 +1,4 @@
-https://photos.google.com/photo/AF1QipOk79idNfqZJJ39ZQ9Ysrr9kdCCDuL3TGWzKHP5
+https://i.postimg.cc/B6s9G5bG/Screenshot-520.png
 
 In this new infrastructure, we add a new server to make our service redundant. Basically we have replicated our service on another server by adding a new web server, a new application server, 1 load balancer, our codebase and a new database.
 The load balancer which is a new component to the whole infrastructure is there to direct traffic to the available servers. The load balancer uses a round robin algorithm. the algorithm basically directs traffic in a sequencial manner.
