@@ -1,1 +1,17 @@
 https://photos.google.com/photo/AF1QipOk79idNfqZJJ39ZQ9Ysrr9kdCCDuL3TGWzKHP5
+
+In this new infrastructure, we add a new server to make our service redundant. Basically we have replicated our service on another server by adding a new web server, a new application server, 1 load balancer, our codebase and a new database.
+The load balancer which is a new component to the whole infrastructure is there to direct traffic to the available servers. The load balancer uses a round robin algorithm. the algorithm basically directs traffic in a sequencial manner.
+The load balancer uses the Active-Active setup which makes use of both servers at the same time to increase performance and reduce load on one server.
+The Active-passive setup uses just one server for the workload and keeps the other as a backup incase of failure.
+
+A primary-replica cluster makes use of differnt instances of a database where we have one primary and a replica of the primary. The replica gets updated after the primary gets updated.
+
+The primary node of an application is the active node while the replica is the passive node.
+
+For this design we have the load balancer as a single point of failure.
+
+we have no firewalls in this design, making it open to anyone to access the servers. also we have no secure sockets layer making it an untrusted network.
+
+without monitoring, if a server breaks down, the load balancer is not aware and keeps routing incoming traffic to the server.
+

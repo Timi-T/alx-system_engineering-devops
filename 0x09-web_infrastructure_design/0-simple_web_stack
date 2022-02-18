@@ -1,1 +1,24 @@
 https://photos.google.com/photo/AF1QipODbQgLAakecE1wO3pRoxFMbPqUFqW3MQbpQSaF
+
+A server is a software or a hardware whose job is to process requests from clients on a specific network (local or internet).
+
+The domain name is a name that acts as the human friendly address of a computer in network.
+
+The "www" in www.foobar.com is a CNAME (canonical name).
+
+The role of a web server primarily is to provide static web pages or files to a client on a network.
+
+The role of an application server is to perform a business logic on data goten from a client.
+
+The role of the database is to store relavant data.
+
+The server uses the HTTP protocol to communicate with clients requesting a website.
+
+ISSUES WITH THE INFRASTRUCTURE
+
+1. SPOF - known as a single point of failure is a point in a a network that if faulty can cause the whole sytem to fail.
+in the design of this infrastructure, we use just one server for the web, application and datebase server. If this server fils then the whole system fails.
+
+2. In our design here, the system is not redundant i.e it is not relicated on any other servers so deploying a new code would mean that the server has to be unavailable for the period of update.
+
+3. This design cannot scale if we have too much incoming traffic because we have all the services on just one server.

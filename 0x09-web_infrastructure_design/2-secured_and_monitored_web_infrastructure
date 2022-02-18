@@ -1,1 +1,21 @@
 https://photos.google.com/photo/AF1QipMt-8L13H176lIggyEXrmYqZwjFjpMC0qkmY7wK
+
+3 firewalls are added to protect the servers from unwanted traffic.
+one for the load balancer
+another for the first instance of the service
+and a third firewall for the second instance of the service
+
+The SSL certificate serves as a proof of authenticity of the web service.
+
+We have included a data collector, a web server monitor and an application server monitor to monitor the performances of each component.
+
+The firewalls are a system in place to filter unwanted traffic into a network.
+
+the traffic is served over https to secure data between the users and the web service.
+
+The monitoring is used to keep track of the servers performance.
+
+ISSUES WITH THIS INFRASTRUCTURE
+1. Terminating SSL at the load balancer level is dangerous because the data is decripted before getting to the specific server it is meant for which leaves a gap in the security of the whole network.
+
+2. Having just one server accepting writes is a problem because it puts a lot of load on a specific server and if that server fails, there might be a data gap between the replica and the primary.

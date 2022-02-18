@@ -1,1 +1,5 @@
 https://photos.google.com/photo/AF1QipNQi29lug-LP2elzd2h6WOgNz4cIlSLU0OialBT
+
+1. We add a load balancer to eliminate the SPOF in the design.
+
+2. We add a server to make it possible to have each component on their own server.
