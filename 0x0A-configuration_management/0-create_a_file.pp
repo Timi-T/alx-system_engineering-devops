@@ -1,4 +1,4 @@
-#puppet script to create a resource (file)
+# Puppet script to create a resource (file)
 
 file { '/tmp/school':
   owner   => 'www-data',
