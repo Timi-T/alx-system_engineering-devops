@@ -1,12 +1,9 @@
 # edit configuration file for ssh connections
-file_line { 'disable password login':
-  ensure => 'present',
-  path   => '/etc/ssh/config',
-  line   => 'PasswordAuthentication no',
-}
 
-file_line { 'declare identity file':
-  ensure => 'present',
-  path   => '/etc/ssh/config',
-  line   => 'IdentityFile ~/.ssh/school',
+$str = "IdentityFile ~/.ssh/school
+        PasswordAuthentication no"
+file { 'config':
+  ensure  => 'present',
+  path    => '/root/.ssh/config',
+  content => $str,
 }
