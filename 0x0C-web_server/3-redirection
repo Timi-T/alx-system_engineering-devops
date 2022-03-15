@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#redirect a page
+
+sudo chmod 777 /etc/nginx/sites-available/default
+sudo sed -i "s/server_name _;/server_name roadsidedev.tech;\n\trewrite ^\/redirect_me$ https:\/\/youtube.com permanent;/" /etc/nginx/sites-available/default
+sudo service nginx restart
