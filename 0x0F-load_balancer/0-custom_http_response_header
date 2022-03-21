@@ -1,16 +1,23 @@
 #!/usr/bin/env bash
-#redirect 404 error page
+#script to install HAproxy on this server
 
-sudo apt-get -y update
-sudo apt-get -y install nginx
-sudo ufw --force enable
-sudo ufw allow 'Nginx HTTP'
-sudo ufw allow 22
-echo 'Hello World!' | sudo tee /var/www/html/index.nginx-debian.html
-sudo chmod 777 /etc/nginx/sites-available/default
-sudo sed -i "s/server_name _;/server_name roadsidedev.tech;\n\trewrite ^\/redirect_me https:\/\/youtube.com permanent;\n\tadd_header X-Served-By \$hostname;/" /etc/nginx/sites-available/default
-sudo touch /var/www/html/error404.html
-sudo chmod 777 /var/www/html/error404.html
-echo "Ceci n'est pas une page" > /var/www/html/error404.html
-sudo sed -i "s/root \/var\/www\/html;/root \/var\/www\/html;\n\n\terror_page 404 \/error404.html;/" /etc/nginx/sites-available/default
-sudo service nginx restart
+sudo apt-get install --no-install-recomends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.0
+sudo apt-get install -y haproxy=2.0\*
+sudo chmod 777 /etc/haproxy/haproxy.cfg
+echo '
+
+frontend http_front
+	bind *:80
+	stats uri /haproxy?stats
+	default_backend http_back
+
+backend http_back
+	balance roundrobin
+	server 1919-web-01 34.148.87.245:80 check
+	server 1919-web-02 3.231.218.82:80 check' >> /etc/haproxy/haproxy.cfg
+sudo chmod 777 /etc/default/haproxy
+echo 'ENABLED=1' >> /etc/default/haproxy
+chkconfig --add haproxy
+chkconfig haproxy on
+sudo systemctl restart haproxy
