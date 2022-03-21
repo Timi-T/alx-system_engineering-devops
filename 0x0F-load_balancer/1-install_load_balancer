@@ -3,7 +3,6 @@
 
 sudo apt-get install --no-install-recomends software-properties-common
 sudo add-apt-repository ppa:vbernat/haproxy-2.0
-sudo apt update
 sudo apt-get install -y haproxy=2.0\*
 sudo chmod 777 /etc/haproxy/haproxy.cfg
 echo '
@@ -17,4 +16,6 @@ backend http_back
 	balance roundrobin
 	server 1919-web-01 34.148.87.245:80 check
 	server 1919-web-02 3.231.218.82:80 check' >> /etc/haproxy/haproxy.cfg
+sudo chmod 777 /etc/default/haproxy
+echo 'ENABLED=1' >> /etc/default/haproxy
 sudo systemctl restart haproxy
