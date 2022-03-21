@@ -18,4 +18,4 @@ backend http_back
 	server 1919-web-02 3.231.218.82:80 check' >> /etc/haproxy/haproxy.cfg
 sudo chmod 777 /etc/default/haproxy
 echo 'ENABLED=1' >> /etc/default/haproxy
-sudo systemctl restart haproxy
+sudo service haproxy restart
