@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-#script to install HAproxy on this server
-
-sudo add-apt-repository ppa:vbernat/haproxy-1.7
+#script to install HAproxy on this serversudo add-apt-repository ppa:vbernat/haproxy-1.7
 sudo apt update
 sudo apt install -y haproxy
 sudo chmod 777 /etc/haproxy/haproxy.cfg
