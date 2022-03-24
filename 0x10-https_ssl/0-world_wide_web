@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#diplay information about domains and sub-domains
+
+domain=$1
+print_info() {
+    domain_info=$(dig $1 | grep -A1 'ANSWER SECTION:')
+    record_type=$(echo $domain_info | awk '{print $7}')
+    ip_address=$(echo $domain_info | awk '{print $8}')
+    echo "The subdomain $2 is a $record_type record and points to $ip_address"
+}
+
+if [ ! $2 ]; then
+    sub_domains=("www" "lb-01" "web-01" "web-02")
+    for each_dom in "${sub_domains[@]}"; do
+        print_info "${each_dom}.${domain}" $each_dom
+    done
+else
+    print_info "${2}.${domain}" $2
+fi
