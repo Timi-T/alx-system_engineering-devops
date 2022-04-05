@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#create a mysql dump file and compress it
+file_date=$(date +"%d-%m-%y")
+extension='.tar.gz'
+file_name="$file_date$extension"
+mysqldump --opt --user='root' --password="$1" --all-databases > backup.sql > /dev/null 2>&1
+tar -czvf ${file_name} backup.sql > /dev/null 2>&1
