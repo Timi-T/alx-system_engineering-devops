@@ -5,7 +5,6 @@ if __name__ == "__main__":
     import requests
     import sys
 
-
     user_req = requests.get("https://jsonplaceholder.typicode.com/users/{}".
                             format(sys.argv[1]))
     user_name = user_req.json().get("name")
