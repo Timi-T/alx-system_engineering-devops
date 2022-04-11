@@ -19,14 +19,17 @@ if __name__ == "__main__":
     tasks = json.loads(data)
     user = user_response.text
     user = json.loads(user)
-    name = user[0].get('name')
+    nm = user[0].get('name')
 
-    complt = 0
+    cm = 0
     all = len(tasks)
     for task in tasks:
         if task.get('completed') is True:
-            complt += 1
-    print("Employee {} is done with tasks({}/{}):".format(name, complt, all))
-    for task in tasks:
-        if task.get('completed') is True:
-            print("\t {}".format(task.get('title')))
+            cm += 1
+    with open('student_output', 'w') as f:
+        print("Employee {} is done with tasks({}/{}):".format(nm, cm, all))
+        f.write("Employee {} is done with tasks({}/{}):\n".format(nm, cm, all))
+        for task in tasks:
+            if task.get('completed') is True:
+                print("\t {}".format(task.get('title')))
+                f.write("\t {}\n".format(task.get('title')))
