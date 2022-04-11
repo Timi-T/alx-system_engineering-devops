@@ -10,8 +10,8 @@ import sys
 
 if __name__ == "__main__":
     id = int(sys.argv[1])
-    users = 'https://jsonplaceholder.typicode.com/users?id={}'.format(id)
-    todo = 'https://jsonplaceholder.typicode.com/todos?userId={}'.format(id)
+    users = 'https://jsonplaceholder.typicode.com/users/{}'.format(id)
+    todo = 'https://jsonplaceholder.typicode.com/todos'
     user_response = requests.get(users)
     todo_response = requests.get(todo)
 
@@ -19,14 +19,16 @@ if __name__ == "__main__":
     tasks = json.loads(data)
     user = user_response.text
     user = json.loads(user)
-    nm = user[0].get('name')
+    nm = user.get('name')
 
+    all = 0
     cm = 0
-    all = len(tasks)
     for task in tasks:
-        if task.get('completed') is True:
-            cm += 1
+        if task['userId'] == id:
+            all += 1
+            if task.get('completed') is True:
+                cm += 1
     print("Employee {} is done with tasks({}/{}):".format(nm, cm, all))
     for task in tasks:
-        if task.get('completed') is True:
+        if task['userId'] == id and task.get('completed') is True:
             print("\t {}".format(task.get('title')))
