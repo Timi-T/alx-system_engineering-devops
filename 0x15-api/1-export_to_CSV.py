@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     with open('USER_ID.csv', 'w') as f:
         for task in tasks:
-            st = task.get('status')
+            st = task.get('completed')
             tl = task.get('title')
             csv_txt = '"{}","{}","{}","{}"\n'.format(id, name, st, tl)
             f.write(csv_txt)
