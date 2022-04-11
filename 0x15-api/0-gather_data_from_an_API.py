@@ -26,10 +26,7 @@ if __name__ == "__main__":
     for task in tasks:
         if task.get('completed') is True:
             cm += 1
-    with open('student_output', 'w') as f:
-        print("Employee {} is done with tasks({}/{}):".format(nm, cm, all))
-        f.write("Employee {} is done with tasks({}/{}):\n".format(nm, cm, all))
-        for task in tasks:
-            if task.get('completed') is True:
-                print("\t {}".format(task.get('title')))
-                f.write("\t {}\n".format(task.get('title')))
+    print("Employee {} is done with tasks({}/{}):".format(nm, cm, all))
+    for task in tasks:
+        if task.get('completed') is True:
+            print("\t {}".format(task.get('title')))
