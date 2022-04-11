@@ -26,7 +26,7 @@ if __name__ == "__main__":
     for task in tasks:
         if task.get('completed') is True:
             complt += 1
-    print("Employee {} is done with tasks ({}/{}):".format(name, complt, all))
+    print("Employee {} is done with tasks({}/{}):".format(name, complt, all))
     for task in tasks:
         if task.get('completed') is True:
-            print("\t{}".format(task.get('title')))
+            print("\t {}".format(task.get('title')))
