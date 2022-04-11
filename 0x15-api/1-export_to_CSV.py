@@ -19,7 +19,7 @@ if __name__ == "__main__":
     tasks = json.loads(data)
     user = user_response.text
     user = json.loads(user)
-    name = user[0].get('name')
+    name = user[0].get('username')
 
     with open('USER_ID.csv', 'w') as f:
         for task in tasks:
