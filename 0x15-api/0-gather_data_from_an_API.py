@@ -3,8 +3,8 @@
 testing getting data from an api
 """
 
-import requests
 import json
+import requests
 import sys
 
 
