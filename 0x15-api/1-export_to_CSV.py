@@ -21,7 +21,8 @@ if __name__ == "__main__":
     user = json.loads(user)
     name = user[0].get('username')
 
-    with open('2.csv', 'w') as f:
+    output_file = '{}.csv'.format(id)
+    with open(output_file, 'w') as f:
         for task in tasks:
             st = task.get('completed')
             tl = task.get('title')
