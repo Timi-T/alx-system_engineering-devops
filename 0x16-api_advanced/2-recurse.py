@@ -14,7 +14,7 @@ def recurse(subreddit, hot_list=[], response='', count=0, after=''):
 
     """Base case"""
     if (after is None):
-        done = 1
+        return
 
     url = "https://www.reddit.com/r/{}/hot.json\
 ?after={}&limit=100".format(subreddit, after)
