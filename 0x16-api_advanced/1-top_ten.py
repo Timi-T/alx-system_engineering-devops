@@ -3,8 +3,8 @@
 Get top ten hot posts from reddit api given a subreddit
 """
 
-import requests
 import json
+import requests
 
 
 def top_ten(subreddit):
