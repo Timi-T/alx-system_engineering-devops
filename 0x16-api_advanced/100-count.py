@@ -54,12 +54,15 @@ def count_words(subreddit, word_list, hot_list=[],
     if not (hot_list):
         return
     words_dict = {}
+    new_list = []
     for wd in word_list:
+        new_list.append(wd.lower())
         words_dict[wd.lower()] = 0
+    word_list = new_list
     for title in hot_list:
         words = (title.lower()).split()
-        for word in word_list:
-            if word.lower() in words:
+        for word in words:
+            if word.lower() in word_list:
                 words_dict[word.lower()] += 1
     x = dict(sorted(words_dict.items(), key=lambda
                     x: (x[1], x[0]), reverse=True))
